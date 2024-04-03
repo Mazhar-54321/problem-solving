@@ -30,6 +30,19 @@ function towerOfHanoi(n,s,a,d){
     towerOfHanoi(n-1,a,s,d);
 
 }
+
+function generateAllCombinations(prefix,remaining,res=[]{
+    if(remaining.length===0){
+        res.push(prefix);
+    }
+    for(let i=0;i<remaining.length;i++){
+        const np = prefix+remaining[i];
+        const nR = remaining.slice(0,i)+remaining.slice(i+1);
+        generateAllCombinations(np,nR,res);
+    }
+    return res;
+}
+console.log(generateAllCombinations('','abc'))
 console.log(factorial(5))
 console.log(fibonacci(5))
 console.log(sumOfDigits(123))
