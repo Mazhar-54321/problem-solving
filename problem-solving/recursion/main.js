@@ -50,4 +50,20 @@ console.log(palindrome('abca'))
 console.log(power(2,3));
 console.log(GCD(15,10));
 towerOfHanoi(3,3,2,1)
+function minSubArraySum(arr,target){
+    let end=0,start=0,sum=0,minLength=Infinity;
+    while(end<arr.length){
+        sum+=arr[end++];
+        while(sum>=target){
+            if(sum===target){
+                minLength=Math.min(Infinity,end-start);   
+            }
+            sum-=arr[start++];
+        }
+    }
+    return minLength;
+    
+}
+
+console.log(minSubArraySum([1,4,4],4))
 
